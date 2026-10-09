@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Agamy</title>
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+     <meta name="description" content="Mohamed Ahmed Agamy Main Portoflio Information and Projects` About Me.">
+    <meta name="keywords" content="MOHAMED AGAMY , mohamed agamy,Mohamed Agamy, محمد عجمي,   Agamista, Agamy.Dev">
+        <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000f1">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-black: #050505;
+            --soft-blue: #3b82f6;
+            --text-main: #ffffff;
+            --text-muted: #d1d5db;
+            --card-bg: rgba(20, 20, 25, 0.6);
+            --card-border: rgba(255, 255, 255, 0.15);
+            --ar-color: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background-color: var(--bg-black);
+        }
+
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            animation: floatAmbient 6s infinite alternate ease-in-out;
+        }
+
+        .glow-blue {
+            width: 450px;
+            height: 450px;
+            background: #0051ff;
+            top: 20%;
+            left: 25%;
+            animation-duration: 5s;
+        }
+
+        @keyframes floatAmbient {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 60px) scale(1.1); }
+            100% { transform: translate(-60px, 100px) scale(0.95); }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #e5e7eb !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa !important;
+        }
+
+        .accent-text {
+            color: #60a5fa;
+            font-weight: 700;
+        }
+
+        /* SOFT WHITE NEON EFFECT FOR NAME */
+        .neon-white-text {
+            color: #ffffff;
+            text-shadow: 
+                0 0 3px #ffffff,
+                0 0 8px rgba(255, 255, 255, 0.6),
+                0 0 15px rgba(255, 255, 255, 0.3);
+            animation: neonPulse 3s infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            0% {
+                text-shadow: 
+                    0 0 2px #ffffff,
+                    0 0 6px rgba(255, 255, 255, 0.5),
+                    0 0 12px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                text-shadow: 
+                    0 0 4px #ffffff,
+                    0 0 10px rgba(255, 255, 255, 0.7),
+                    0 0 20px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Arabic Text Style */
+        .ar-text {
+            display: block;
+            color: var(--ar-color);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9em;
+            margin-top: 5px;
+            direction: rtl;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        .badge-custom {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            color: #93c5fd;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* TYPING CURSOR CUSTOMIZATION */
+        .typed-cursor {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            margin-left: 2px;
+        }
+
+        /* Profile Frame */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            transition: all 0.4s ease;
+        }
+
+        .profile-wrapper:hover .profile-img {
+            border-color: var(--soft-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+        }
+
+        @media (min-width: 992px) {
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        /* Buttons */
+        .btn-custom {
+            background-color: var(--soft-blue);
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-custom:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline-custom {
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+
+        /* Custom Cards */
+        .custom-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+        }
+
+        .custom-card:hover {
+            border-color: rgba(96, 165, 250, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+
+        /* Certifications & Project Display */
+        .cert-card-img-wrapper, .project-card-img-wrapper {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .cert-img, .project-img {
+            width: 100%;
+            height: 100%;
+           
+            border-bottom: 1px solid var(--card-border);
+            transition: transform 0.4s ease;
+        }
+
+        .custom-card:hover .cert-img, .custom-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .cert-badge, .project-tag {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            font-weight: 600;
+        }
+
+        /* Skill Pill */
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Timeline / Experience */
+        .timeline-box {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #60a5fa;
+            box-shadow: 0 0 10px #60a5fa;
+        }
+
+        /* Accordion FAQ Styling */
+        .accordion-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            margin-bottom: 10px;
+            border-radius: 12px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+        }
+
+        .accordion-body {
+            color: var(--text-muted);
+        }
+
+ /* Code Showcase Window */
+        .code-editor-box {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            font-family: 'Fira Code', monospace;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .code-header {
+            background: #161b22;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-body {
+            padding: 20px;
+            color: #c9d1d9;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+ /* Project Estimator Calculator */
+        .estimator-card {
+            background: rgba(15, 20, 32, 0.85);
+            border: 1px solid var(--primary-glow);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        
+
+
+        
+        /* Form Inputs */
+        .form-label {
+            color: #f3f4f6 !important;
+            font-weight: 500;
+        }
+
+        .form-control-custom {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+
+        .form-control-custom::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-control-custom:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--soft-blue);
+            color: #ffffff;
+            box-shadow: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--card-border);
+            background: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg">
+        <div class="glow-sphere glow-blue"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fs-4" href="#">Agamy<span class="accent-text">.dev</span></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-lg-row g-4">
+                
+                <div class="col-lg-7 text-center text-lg-start" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="badge-custom mb-3"><i class="fa-solid fa-circle-dot me-2"></i>Available for Freelance</span>
+                    
+                    <h1 class="display-4 fw-bold mb-3">
+                        <span class="neon-white-text">Mohamed Agamy</span> <br>
+                        <span class="accent-text" id="typed-text"></span>
+                    </h1>
+
+                    <p class="lead text-muted mb-4 fs-6 pe-lg-5">
+                        Building modern, responsive, and performance-driven web interfaces with clean code and seamless user experiences.
+                        <span class="ar-text">بناء واجهات ويب حديثة، متجاوبة، وسريعة الأداء بكود نظيف وتجربة استخدام سلسة.</span>
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#projects" class="btn btn-custom">Explore Work</a>
+                        <a href="#contact" class="btn btn-outline-custom">Let's Talk</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center mb-3 mb-lg-0" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="profile-wrapper">
+                        <img src="pho.jpg" alt="Profile" class="profile-img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="p-4 custom-card">
+                        <i class="fa-solid fa-terminal fa-2x accent-text mb-3"></i>
+                        <h4 class="fw-bold text-white">Clean Code & Architecture</h4>
+                        <p class="text-muted mb-0">
+                            Designing straightforward, accessible, and scalable digital solutions tailored to solve real-world problems effectively.
+                            <span class="ar-text">تصميم حلول رقمية سهلة، قابلة للتوسع ومصممة خصيصاً لحل المشكلات الفعلية بكفاءة.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <h2 class="fw-bold mb-3 text-white">Passionate About Creating Impactful Web Solutions</h2>
+                    <p class="text-muted fs-6">
+                        With years of hands-on experience in frontend and UI engineering, I bridge the gap between design and functional technology.
+                        <span class="ar-text">مع سنوات من الخبرة العملية في تطوير الواجهات، أربط بين التميز في التصميم والتقنيات البرمجية.</span>
+                    </p>
+                    <div class="row mt-4 g-3 text-center text-md-start">
+                        <div class="col-4">
+                            <h2 class="fw-bold accent-text mb-0">15+</h2>
+                            <small class="text-muted fw-semibold">Certifications</small>
+                        </div>
+                        <div class="col-4">
+                            <h2 class="fw-bold accent-text mb-0">3+</h2>
+                            <small class="text-muted fw-semibold">Years Exp.</small>
+                        </div>
+                        <div class="col-4">
+                            <h2 class="fw-bold accent-text mb-0">93%</h2>
+                            <small class="text-muted fw-semibold">Satisfaction</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Work <span class="accent-text">& Experience</span></h2>
+                <p class="text-muted fs-6 mb-0">My journey and milestones in development</p>
+                <span class="ar-text">رحلتي المهنية والإنجازات في البرمجة</span>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="timeline-box ms-3">
+                        <div class="timeline-item">
+                            <span class="cert-badge mb-2 d-inline-block">2024 - Present</span>
+                            <h5 class="fw-bold text-white mb-1">Frontend Engineer & Freelancer</h5>
+                            <p class="text-muted fs-6">Developing interactive web apps, progressive web applications (PWA), and responsive UIs for various clients.
+                            <span class="ar-text">تطوير تطبيقات ويب تفاعلية وتطبيقات شبكية متقدمة وواجهات متجاوبة للعديد من العملاء.</span></p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="cert-badge mb-2 d-inline-block">2024 - 2027</span>
+                            <h5 class="fw-bold text-white mb-1">UI/UX Designer & Application Developer</h5>
+                            <p class="text-muted fs-6">Designed user-centered designs and created clean, structured codebases for startup Applications.
+                            <span class="ar-text">تصميم واجهات مستخدم مريحة وبناء أكواد برمجية للبرامج الحديثة.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Services <span class="accent-text">& Expertise</span></h2>
+                <p class="text-muted fs-6 mb-0">High quality development services tailored to your needs</p>
+                <span class="ar-text">خدمات تطوير عالية الجودة مصممة لتناسب احتياجاتك</span>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="custom-card p-4 h-100">
+                        <i class="fa-solid fa-code fa-2x accent-text mb-3"></i>
+                        <h5 class="fw-bold text-white mb-2">Web Development</h5>
+                        <p class="text-muted fs-6 mb-0">
+                            Building fast, mobile-friendly, and SEO-optimized web applications using modern stacks.
+                            <span class="ar-text">تطوير تطبيقات ومواقع ويب سريعة، متوافقة مع الهواتف، ومجهزة لمحركات البحث.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="custom-card p-4 h-100">
+                        <i class="fa-solid fa-layer-group fa-2x accent-text mb-3"></i>
+                        <h5 class="fw-bold text-white mb-2">UI/UX Interface</h5>
+                        <p class="text-muted fs-6 mb-0">
+                            Crafting intuitive and aesthetically pleasing interface layouts with subtle animations.
+                            <span class="ar-text">تصميم واجهات مستخدم مريحة، جذابة بصرياً ومعززة بحركات أنيقة.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="custom-card p-4 h-100">
+                        <i class="fa-solid fa-mobile-screen-button fa-2x accent-text mb-3"></i>
+                        <h5 class="fw-bold text-white mb-2">Mobile Applications</h5>
+                        <p class="text-muted fs-6 mb-0">
+                            Developing responsive and engaging mobile applications for iOS and Android platforms.
+                            <span class="ar-text">بناء وتطوير تطبيقات جوال متجاوبة وسريعة لنظامي iOS وأندرويد.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Featured <span class="accent-text">Projects</span></h2>
+                <p class="text-muted fs-6 mb-0">Recent digital creations and developments</p>
+                <span class="ar-text">أبرز المشاريع والتطبيقات السابقة</span>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="custom-card h-100 overflow-hidden">
+                        <div class="project-card-img-wrapper">
+                            <img src="wa3i.png" class="project-img" alt="Wa3i Platform">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="project-tag">Wa3i.net Platform</span>
+                                <small class="text-muted">Interactive App</small>
+                            </div>
+                            <h5 class="fw-bold text-white">Wa3i Educational & Awareness Platform</h5>
+                            <p class="text-muted fs-6 mb-3">
+                                Web platform designed to deliver the awareness for digital content.
+                                <span class="ar-text">منصة ويب مصممة لتوصيل الوعي بالمحتوى الرقمي.</span>
+                            </p>
+                            <a href="https://wa3i.net/" class="btn btn-outline-custom btn-sm">Demo Preview <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="custom-card h-100 overflow-hidden">
+                        <div class="project-card-img-wrapper">
+                            <img src="Screenshot 2026-09-19 231337.png" class="project-img" alt="Microsoft App">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="project-tag">Digital Egypt Builders Initiative</span>
+                                <small class="text-muted">Web Site</small>
+                            </div>
+                            <h5 class="fw-bold text-white">DEBI Competition Showcase</h5>
+                            <p class="text-muted fs-6 mb-3">
+                                DEBI Responciving in Cyperscurity and AI.
+                                <span class="ar-text">رواد مصر الرقميه و التعامل مع الاختراق الامني و الذكاء الاصتناعي</span>
+                            </p>
+                            <a href="https://debi.gov.eg/" class="btn btn-outline-custom btn-sm">Demo Preview <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="py-5">
+        <div class="container py-4">
+            <div class="text-center text-md-start mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white mb-1">Honors & <span class="accent-text">Certificates</span></h2>
+                <p class="text-muted fs-6 mb-0">Verified qualifications and achievements</p>
+                <span class="ar-text" style="text-align: right;">الشهادات والاعتمادات الرسمية</span>
+            </div>
+            <div class="row g-4">
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card custom-card h-100 overflow-hidden">
+                        <div class="cert-card-img-wrapper">
+                            <img src="15.jpg" class="cert-img" alt="Google Certificate">
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="cert-badge">DEBI</span>
+                                <small class="text-muted">2023</small>
+                            </div>
+                            <h5 class="card-title fw-bold text-white">Digital Egypt Builders Initiative</h5>
+                            <p class="card-text text-muted fs-6">
+                                Certified expertise in advanced Ai Model Programing concepts and practices.
+                                <span class="ar-text">شهاده معتمده في ممارسه مفاهيم البرمجه والذكاء الاصتناعي</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card custom-card h-100 overflow-hidden">
+                        <div class="cert-card-img-wrapper">
+                            <img src="dgi.jpg" class="cert-img" alt="Digitopia Certificate">
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="cert-badge">Digitopia</span>
+                                <small class="text-muted">2025</small>
+                            </div>
+                            <h5 class="card-title fw-bold text-white">Digitopia Egyptian Competition</h5>
+                            <p class="card-text text-muted fs-6">
+                                Participation and achievement in the Digitopia Egyptian Competition.
+                                <span class="ar-text">المشاركة والإنجاز في مسابقة ديجيتوبيا المصرية التكنولوجية.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card custom-card h-100 overflow-hidden">
+                        <div class="cert-card-img-wrapper">
+                            <img src="14.jpg" class="cert-img" alt="Ministry Certificate">
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="cert-badge">Wa3i.net</span>
+                                <small class="text-muted">2026</small>
+                            </div>
+                            <h5 class="card-title fw-bold text-white">Ministry of Communications</h5>
+                            <p class="card-text text-muted fs-6">
+                                Certification in deploying and Assisting in wa3i.net app.
+                                <span class="ar-text">شهادة التقدير والمشاركة في تطوير وتدشين تطبيق واعي.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Technologies <span class="accent-text">& Tools</span></h2>
+                <span class="ar-text">التقنيات وأدوات البرمجة</span>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center gap-3" data-aos="fade-up">
+                <div class="skill-pill"><i class="fa-brands fa-html5 text-danger fs-5"></i> HTML5</div>
+                <div class="skill-pill"><i class="fa-brands fa-css3-alt text-primary fs-5"></i> CSS3</div>
+                <div class="skill-pill"><i class="fa-brands fa-js text-warning fs-5"></i> JavaScript</div>
+                <div class="skill-pill"><i class="fa-brands fa-bootstrap style-purple fs-5" style="color:#7952b3"></i> Bootstrap 5</div>
+                <div class="skill-pill"><i class="fa-brands fa-react text-info fs-5"></i> React.js</div>
+                <div class="skill-pill"><i class="fa-brands fa-git-alt text-danger fs-5"></i> Git</div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center g-5" data-aos="fade-up">
+                <div class="col-lg-5">
+                    <span class="text-primary fw-bold text-uppercase">Code Standards</span>
+                    <h2 class="display-6 fw-bold text-white mt-1 mb-3">Clean & Maintainable Code Architecture</h2>
+                    <p class="text-muted fs-6 mb-3">
+                        Writing clean code isn't just about functionality; it's about scalability, speed, and easy collaboration for future developer handovers.
+                    </p>
+                    <span class="ar-text fs-6">
+                        كتابة كود برمجي نظيف، منظم وسهل الصيانة متبعاً أفضل المعايير القياسية العالمية.
+                    </span>
+                </div>
+                <div class="col-lg-7">
+                    <div class="code-editor-box">
+                        <div class="code-header">
+                            <span class="code-dot" style="background:#ff5f56"></span>
+                            <span class="code-dot" style="background:#ffbd2e"></span>
+                            <span class="code-dot" style="background:#27c93f"></span>
+                            <span class="text-muted fs-6 ms-2">AgamyDeveloper.js</span>
+                        </div>
+                        <div class="code-body">
+<pre><code class="text-info">const</code> <span class="text-warning">developer</span> = {
+    name: <span class="text-success">'Mohamed Agamy'</span>,
+    role: <span class="text-success">'Frontend Engineer'</span>,
+    speciality: [<span class="text-success">'Applications'</span>, <span class="text-success">'Websites'</span>, <span class="text-success">'UI/UX Design'</span>],
+    isAvailableForHire: <span class="text-danger">true</span>,
+    buildProject: <span class="text-info">async</span> (<span class="text-warning">projectRequirements</span>) => {
+        <span class="text-info">const</span> solution = <span class="text-info">await</span> optimizeArchitecture;
+        <span class="text-info">return</span> solution.deliverCleanCode();
+    }
+};
+<span class="text-secondary">// Executing perfection for every platform</span>
+developer.buildProject({ speed: <span class="text-success">'100%'</span>, mobileResponsive: 
+<span class="text-danger">true</span> });</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="faq" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Frequently Asked <span class="accent-text">Questions</span></h2>
+                <span class="ar-text">الأسئلة الشائعة والإجابات عنها</span>
+            </div>
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Are you specialized in developing platforms for teachers?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, I can develop platforms for teachers that are easy, smooth, and user-friendly for both teachers and students..
+                                    <span class="ar-text">نعم، أستطيع برمجة منصات للمدرسين تكون سهلة وسلسة في الاستخدام، وتوفر تجربة بسيطة ومريحة لكلٍّ من المدرس والطالب.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Are all websites responsive on mobile phones?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, 100%! Every project is designed with a mobile-first approach for perfect view on all screen sizes.
+                                    <span class="ar-text">بالتأكيد! يتم تصميم جميع الواجهات لتتوافق بشكل تام وسلس مع جميع الشاشات والهواتف.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  
+
+
+      <section id="estimator" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-white">Project <span class="accent-text">Cost Estimator</span></h2>
+                <p class="text-muted mb-0">Get an instant preliminary calculation for your desired website or app</p>
+                <span class="ar-text">حاسبة تقدير تكلفة ومدة المشروع المبدئية التفاعلية</span>
+            </div>
+
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-8">
+                    <div class="estimator-card">
+                        <div class="mb-4">
+                            <label class="form-label text-white fw-semibold">1. Select Project Type / اختر نوع المشروع:</label>
+                            <select id="est-type" class="form-select form-control-custom" onchange="calculateEstimate()">
+                                <option value="teacher">Teacher Educational Platform _ منصة تعليمية للمدرسين</option>
+                                <option value="website">Custom Business Website_موقع تعريفي للشركة/نشاطك</option>
+                                <option value="pwa">Progressive Web Application_PWA تطبيق جوال</option>
+                                <option value="ui">UI/UX Design & Frontend Only_تصميم واجهات</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-white fw-semibold">2. Choose Pages & Complexity / عدد الصفحات والخصائص:</label>
+                            <select id="est-pages" class="form-select form-control-custom" onchange="calculateEstimate()">
+                                <option value="1">Landing Page (صفحة واحدة متكاملة)</option>
+                                <option value="3">3 - 5 Pages (عدة صفحات)</option>
+                                <option value="10">Full Platform with Admin Panel (منصة كاملة بـ لوحة تحكم)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-white fw-semibold">3. Additional Features / ميزات إضافية:</label>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <div class="form-check text-muted">
+                                        <input class="form-check-input" type="checkbox" id="est-opt1" onchange="calculateEstimate()">
+                                        <label class="form-check-label text-white" for="est-opt1">PWA Offline Mode (عمل بدون إنترنت)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check text-muted">
+                                        <input class="form-check-input" type="checkbox" id="est-opt2" onchange="calculateEstimate()">
+                                        <label class="form-check-label text-white" for="est-opt2">Student Exam System (نظام امتحانات للمدرسين)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-3 bg-dark bg-opacity-75 border border-primary border-opacity-25 text-center mt-4">
+                            <small class="text-muted d-block mb-1">Estimated Timeline & Range / التقدير المبدئي للوقت والتكلفة</small>
+                            <h3 class="fw-bold accent-text mb-1" id="est-price" >$2500 - $8000 Eg.P</h3>
+                            <span  style="color: white;">Estimated Duration: 5 - 8 Days</span>
+                            
+                            <div class="mt-3" >
+                                <a id="est-whatsapp-link" href="#" target="_blank" class="btn btn-custom btn-sm" style="background-color: #27c93f;">
+                                    <i class="fa-brands fa-whatsapp fs-5 me-1"></i> Order This Plan via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ 
+    <section id="contact" class="py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="fw-bold mb-3 text-white">Get In <span class="accent-text">Touch</span></h2>
+                    <p class="text-muted mb-1 fs-6">Have a project in mind or want to collaborate? Send a message!</p>
+                    <span class="ar-text mb-4">تواصل معي لبدء العمل على مشروعك</span>
+                    
+                    <form class="text-start custom-card p-4 p-md-5">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Your Name / الاسم</label>
+                                <input type="text" class="form-control form-control-custom" placeholder="Mohamed Agamy">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Your Email / البريد الإلكتروني</label>
+                                <input type="email" class="form-control form-control-custom" placeholder="mohamed@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message / الرسالة</label>
+                                <textarea class="form-control form-control-custom" rows="4" placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="button" class="btn btn-custom w-100 py-3">Send Message / إرسال الرسالة</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 fs-4 d-flex justify-content-center gap-4">
+                        <a href="" class="text-muted"><i class="fa-brands fa-github"></i></a>
+                        <a href="" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="text-muted"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center text-muted fs-6">
+        <p class="mb-0">&copy; 2027 Agamy.dev . All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        AOS.init({ once: true, duration: 800 });
+
+        // تهيئة الكلمات المتحركة وحركتها
+        new Typed('#typed-text', {
+            strings: [
+                'Applications', 
+                'Platforms', 
+                'Websites', 
+                'UI/UX Designs', 
+                'Mobile Apps'
+
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 1500,
+            loop: true
+        });
+
+        // Dynamic Service Worker script injection for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+                    const CACHE_NAME = 'agamy-app-v2';
+                    self.addEventListener('install', (e) => {
+                        e.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(['./'])));
+                    });
+                    self.addEventListener('fetch', (e) => {
+                        e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
+                    });
+                `;
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const blobURL = URL.createObjectURL(blob);
+
+                navigator.serviceWorker.register(blobURL)
+                    .then(() => console.log("PWA Service Worker Registered Successfully"))
+                    .catch((err) => console.log("Service Worker Registration Failed:", err));
+            });
+        }
+    </script>
+
+    <script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js");
+    });
+}
+</script>
+</body>
+</html>
